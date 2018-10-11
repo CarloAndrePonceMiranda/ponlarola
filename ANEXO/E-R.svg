@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="25cm" height="19cm" viewBox="266 44 489 361" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #000000" x="436" y="241" width="126.25" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="436" y="241" width="126.25" height="20"/>
+    <text font-size="12.8" style="fill: #ffffff;text-anchor:middle;font-family:serif;font-style:normal;font-weight:normal" x="499.125" y="257">Usuario</text>
+    <rect style="fill: #000000" x="436" y="261" width="126.25" height="144"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="436" y="261" width="126.25" height="144"/>
+    <polygon style="fill: #000000" points="439,273 441,276 443,273 441,270 "/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="445" y="281">id</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #ffffff" x1="445" y1="283" x2="555.25" y2="283"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="441" cy="293" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="445" y="301">Nombre</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="441" cy="313" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="445" y="321">Apellido</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="441" cy="333" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="445" y="341">Email</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="441" cy="353" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="445" y="361">Constraseña</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="441" cy="373" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="445" y="381">Role</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #000000" cx="441" cy="393" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="445" y="401">Imagen</text>
+  </g>
+  <g>
+    <rect style="fill: #34b00d" x="267" y="44" width="132.15" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #34b00d" x="267" y="44" width="132.15" height="20"/>
+    <text font-size="12.8" style="fill: #ffffff;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="333.075" y="60">Artista</text>
+    <rect style="fill: #34b00d" x="267" y="64" width="132.15" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #34b00d" x="267" y="64" width="132.15" height="84"/>
+    <polygon style="fill: #34b00d" points="270,76 272,79 274,76 272,73 "/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="276" y="84">id</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #ffffff" x1="276" y1="86" x2="392.15" y2="86"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #34b00d" cx="272" cy="96" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="276" y="104">Nombre</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #34b00d" cx="272" cy="116" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="276" y="124">Descripción</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #34b00d" cx="272" cy="136" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="276" y="144">Imagen</text>
+  </g>
+  <g>
+    <rect style="fill: #35e2d9" x="486" y="77" width="119.7" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #28e3b4" x="486" y="77" width="119.7" height="20"/>
+    <text font-size="12.8" style="fill: #ffffff;text-anchor:middle;font-family:serif;font-style:normal;font-weight:normal" x="545.85" y="93">Album</text>
+    <rect style="fill: #35e2d9" x="486" y="97" width="119.7" height="124"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #28e3b4" x="486" y="97" width="119.7" height="124"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #28e3b4" cx="491" cy="109" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="495" y="117">id</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #28e3b4" cx="491" cy="129" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="495" y="137">Titulo</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #28e3b4" cx="491" cy="149" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="495" y="157">Artista</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #28e3b4" cx="491" cy="169" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="495" y="177">Descripción</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #28e3b4" cx="491" cy="189" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="495" y="197">Año</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #28e3b4" cx="491" cy="209" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #ffffff;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="495" y="217">Imagen</text>
+  </g>
+  <g>
+    <rect style="fill: #bd241e" x="666" y="80" width="89.6" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #bd241e" x="666" y="80" width="89.6" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:serif;font-style:normal;font-weight:normal" x="710.8" y="96">Canción</text>
+    <rect style="fill: #bd241e" x="666" y="100" width="89.6" height="104"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #bd241e" x="666" y="100" width="89.6" height="104"/>
+    <polygon style="fill: #bd241e" points="669,112 671,115 673,112 671,109 "/>
+    <text font-size="16" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="675" y="120">id</text>
+    <line style="fill: none; fill-opacity:0; stroke-width: 1; stroke: #000000" x1="675" y1="122" x2="748.6" y2="122"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #bd241e" cx="671" cy="132" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="675" y="140">Nombre</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #bd241e" cx="671" cy="152" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="675" y="160">Album</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #bd241e" cx="671" cy="172" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="675" y="180">Número</text>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 0.2; stroke: #bd241e" cx="671" cy="192" rx="2" ry="2"/>
+    <text font-size="16" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="675" y="200">Archivo</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="399.15,76 442.575,76 442.575,149 476.264,149 "/>
+    <polygon style="fill: #000000" points="483.764,149 473.764,154 476.264,149 473.764,144 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="483.764,149 473.764,154 476.264,149 473.764,144 "/>
+    <text font-size="9.59961" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="403.15" y="72">1</text>
+    <text font-size="9.59961" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="482" y="145">n</text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="605.7,109 635.85,109 635.85,152 656.264,152 "/>
+    <polygon style="fill: #000000" points="663.764,152 653.764,157 656.264,152 653.764,147 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="663.764,152 653.764,157 656.264,152 653.764,147 "/>
+    <text font-size="9.59961" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="609.7" y="105">1</text>
+    <text font-size="9.59961" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="662" y="148">n</text>
+  </g>
+</svg>
