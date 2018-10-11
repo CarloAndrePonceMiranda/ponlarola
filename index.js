@@ -2,6 +2,7 @@
 
 // Variables
 var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 
 // Incorporar app.js
 var app = require('./app');
@@ -10,7 +11,7 @@ var app = require('./app');
 var port = process.env.PORT || 3997;
 
 // Conección con MongoDB
-mongoose.connect('mongodb://localhost:27017/ponlarola', (err, res) => {
+mongoose.connect('mongodb://localhost:27017/ponlarola',{ useNewUrlParser: true }, (err, res) => {
   if (err) {
      throw err;
      console.error(err);
