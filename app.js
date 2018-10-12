@@ -17,6 +17,7 @@ oneWeekAfter.getDate();
 var noww = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), oneWeekAfter.getDate(), 0, 0, 0, 0);
 
 // Cargar Rutas
+var user_routes = require('./routes/usuario');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -24,10 +25,7 @@ app.use(bodyParser.json());
 // Configurar Cabeceras HTTP
 
 // Rutas Base
-
-app.get('/pruebas',function(req,res){
-  res.status(200).send({mensaje:'Hello Word'});
-});
+app.use('/api', user_routes);
 
 // Exportar app
 

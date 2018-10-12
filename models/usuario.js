@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // Modelo de Usuario
-var UserSchema() = Schema({
+var UserSchema = Schema({
   nombre: String,
   apellido: String,
   email: String,
