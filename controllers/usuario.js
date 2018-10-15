@@ -9,6 +9,10 @@ var User = require('../models/usuario');
 // Importar Servicio
 var jwt = require('../services/jwt');
 
+// Sistema de archivos y rutas
+var fs = require('fs');
+var path = require('path');
+
 
 //Prueba
 function pruebas(req, res){
@@ -16,7 +20,7 @@ function pruebas(req, res){
     mensaje: 'Probando una acción del controlador de usuario '
   });
 }
-//Crear usuario
+// Crear usuario {Registro}
 function SaveUser(req, res) {
   var user = new User();
   var params = req.body
@@ -112,10 +116,56 @@ function loginUser(req,res) {
   });
 }
 
+// Cargar imagen
+function uploadImage(req,res) {
+  var userId = req.params.id;
+  var file_name = 'No subido';
+  if (req.files) {
+    var file_path = req.files.imagen.path;
+    var file_split = file_path.split('\/');
+    var file_name = file_split[2];
+    var ext_split = file_name.split('\.');
+    var file_ext = ext_split[1];
+    if (file_ext == 'png' || file_ext == 'jpg' || file_ext == 'gif') {
+      User.findByIdAndUpdate(userId, {imagen: file_name}, (err, userUpdated) => {
+        if (err) {
+          res.status(500).send({mensaje:'Error al Actualizar el usuario'});
+        } else {
+          if (!userUpdated) {
+            res.status(404).send({mensaje:'No se ah podido Actualizar el Usuario'});
+          }else {
+            res.status(200).send({user: userUpdated, mensaje:'Usuario Actualizado Correctamente'});
+          }
+        }
+      });
+    } else {
+      res.status(200).send({ mensaje:'Por favor selecciona una imagen...' });
+    }
+    console.log(ext_split);
+  }else {
+    res.status(200).send({ mensaje:'La imagen no se ah subido' });
+  }
+}
+
+function getImageFile(req, res) {
+  var imageFile = req.params.imageFile;
+  var path_file = './archivos/usuarios/'+imageFile;
+
+  fs.exists(path_file, function(exists) {
+    if (exists) {
+      res.sendFile(path.resolve(path_file));
+    } else {
+      res.status(200).send({ mensaje:'La imagen no existe' });
+    }
+  });
+}
+
 // Exportar función
 module.exports = {
   pruebas,
   SaveUser,
   updateUser,
-  loginUser
+  loginUser,
+  uploadImage,
+  getImageFile
 };
