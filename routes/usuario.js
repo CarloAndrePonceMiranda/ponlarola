@@ -7,7 +7,7 @@ var UserController = require('../controllers/usuario');
 // Cargar el Router de express
 var api = express.Router();
 
-// Cargar Middleware
+// Cargar Middleware de autenticación
 var md_auth = require('../middlewares/authenticated');
 
 // Enviar Archivos mediante HTTP y su Middleware
@@ -22,5 +22,5 @@ api.put('/update-user/:id', md_auth.ensureAuth, UserController.updateUser)
 api.post('/upload-image-user/:id', [md_auth.ensureAuth, md_upload], UserController.uploadImage)
 api.get('/get-image-user/:imageFile', UserController.getImageFile)
 
-// Exportar ruta
+// Exportar rutas
 module.exports = api;

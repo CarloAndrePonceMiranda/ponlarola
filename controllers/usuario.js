@@ -25,8 +25,6 @@ function SaveUser(req, res) {
   var user = new User();
   var params = req.body
 
-  console.log(params);
-
   user.nombre = params.nombre;
   user.apellido = params.apellido;
   user.email = params.email;
@@ -42,11 +40,11 @@ function SaveUser(req, res) {
         user.save((err,userStored) => {
           if (err) {
             // enviar error
-            res.status(500).send({mensaje:'Error al registrarse'});
+            res.status(500).send({mensaje:'Error al registrarse ❌'});
           } else {
             if (!userStored) {
               // enviar error
-              res.status(404).send({mensaje:'Usuario no Registrado'});
+              res.status(404).send({mensaje:'Usuario no Registrado 🚫'});
             } else {
               // enviar error
               res.status(200).send({user: userStored});
@@ -55,14 +53,16 @@ function SaveUser(req, res) {
         });
       }else {
         // enviar error
-        res.status(200).send({mensaje:'Introduce Todos los Campos'});
+        res.status(200).send({mensaje:'Introduce Todos los Campos ❗️❗️'});
       }
     });
   }else {
     // enviar error
-    res.status(200).send({mensaje:'Introduce la contraseña...'});
+    res.status(200).send({mensaje:'Introduce la contraseña...🔑'});
   }
 }
+
+
 // Actualizar usuario
 function updateUser(req, res) {
    var userId = req.params.id;
@@ -70,12 +70,12 @@ function updateUser(req, res) {
 
    User.findByIdAndUpdate(userId, update, (err, userUpdated) => {
      if (err) {
-       res.status(500).send({mensaje:'Error al Actualizar el usuario'});
+       res.status(500).send({mensaje:'Error al Actualizar el usuario ❌♻️'});
      } else {
        if (!userUpdated) {
-         res.status(404).send({mensaje:'No se ah podido Actualizar el Usuario'});
+         res.status(404).send({mensaje:'No se ah podido Actualizar el Usuario ❎'});
        }else {
-         res.status(200).send({user: userUpdated, mensaje:'Usuario Actualizado Correctamente'});
+         res.status(200).send({user: userUpdated, mensaje:'Usuario Actualizado Correctamente ✅'});
        }
      }
    });
@@ -90,10 +90,10 @@ function loginUser(req,res) {
 
   User.findOne({email: email}, (err, user) =>  {
     if (err) {
-      res.status(500).send({ mensaje : 'Error en la petición'});
+      res.status(500).send({ mensaje : 'Error en la petición ❌'});
     } else {
       if (!user) {
-        res.status(404).send({ mensaje : 'Usuario no registrado'});
+        res.status(404).send({ mensaje : 'Usuario no registrado ❎'});
       } else {
         // Comprobar Contraseña
         bcrypt.compare(password, user.password, function(err,check) {
@@ -105,10 +105,10 @@ function loginUser(req,res) {
                 token: jwt.CreateToken(user)
               });
             }else {
-              res.status(200).send({ user });
+              res.status(200).send({ user , mensaje: '🎉 Bienvenido 🎊'});
             }
           } else {
-            res.status(404).send({ mensaje : 'Correo Electrónico o Contraseña incorrectos'});
+            res.status(404).send({ mensaje : 'Correo Electrónico o Contraseña incorrectos ⚠️'});
           }
         });
       }
@@ -129,21 +129,21 @@ function uploadImage(req,res) {
     if (file_ext == 'png' || file_ext == 'jpg' || file_ext == 'gif') {
       User.findByIdAndUpdate(userId, {imagen: file_name}, (err, userUpdated) => {
         if (err) {
-          res.status(500).send({mensaje:'Error al Actualizar el usuario'});
+          res.status(500).send({mensaje:'Error al Actualizar el usuario ❌♻️'});
         } else {
           if (!userUpdated) {
-            res.status(404).send({mensaje:'No se ah podido Actualizar el Usuario'});
+            res.status(404).send({mensaje:'No se ah podido Actualizar el Usuario ❎'});
           }else {
-            res.status(200).send({user: userUpdated, mensaje:'Usuario Actualizado Correctamente'});
+            res.status(200).send({user: userUpdated, mensaje:'Usuario Actualizado Correctamente ✅'});
           }
         }
       });
     } else {
-      res.status(200).send({ mensaje:'Por favor selecciona una imagen...' });
+      res.status(200).send({ mensaje:'Por favor selecciona una imagen... ⚠️' });
     }
     console.log(ext_split);
   }else {
-    res.status(200).send({ mensaje:'La imagen no se ah subido' });
+    res.status(200).send({ mensaje:'La imagen no se ah subido ❌' });
   }
 }
 
@@ -155,7 +155,7 @@ function getImageFile(req, res) {
     if (exists) {
       res.sendFile(path.resolve(path_file));
     } else {
-      res.status(200).send({ mensaje:'La imagen no existe' });
+      res.status(200).send({ mensaje:'La imagen no existe ❓' });
     }
   });
 }

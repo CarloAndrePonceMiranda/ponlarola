@@ -4,9 +4,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // Modelo de Usuario
-var AlbumSchema() = Schema({
+var AlbumSchema = Schema({
   titulo: String,
-  artista: { type: Schema.objectId, ref:'Artista' }, /* Referencia al objeto Artista */
+  artista: { type: Schema.ObjectId, ref:"Artist" }, /* Referencia al objeto Artista */
   descripcion: String,
   fecha_lanzamiento: Number,
   imagen: String,
