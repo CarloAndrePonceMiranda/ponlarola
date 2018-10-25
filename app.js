@@ -30,5 +30,4 @@ app.use('/api', user_routes);
 app.use('/api', artist_routes);
 
 // Exportar app
-
 module.exports = app;
