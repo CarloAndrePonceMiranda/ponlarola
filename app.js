@@ -19,6 +19,7 @@ var noww = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), oneWeekAfter.getD
 // Cargar Rutas
 var user_routes = require('./routes/usuario');
 var artist_routes = require('./routes/artista');
+var album_routes = require('./routes/album');
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
@@ -28,6 +29,7 @@ app.use(bodyParser.json());
 // Rutas Base
 app.use('/api', user_routes);
 app.use('/api', artist_routes);
+app.use('/api', album_routes);
 
 // Exportar app
 module.exports = app;
