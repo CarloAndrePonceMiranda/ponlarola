@@ -139,12 +139,12 @@ function uploadImage(req,res) {
     if (file_ext == 'png' || file_ext == 'jpg' || file_ext == 'gif') {
       Artista.findByIdAndUpdate(artistId, {imagen: file_name}, (err, artistUpdated) => {
         if (err) {
-          res.status(500).send({mensaje:'Error al Actualizar el usuario ❌♻️'});
+          res.status(500).send({mensaje:'Error al Actualizar el Artista ❌♻️'});
         } else {
           if (!artistUpdated) {
-            res.status(404).send({mensaje:'No se ah podido Actualizar el Usuario ❎'});
+            res.status(404).send({mensaje:'No se ah podido Actualizar el Artista ❎'});
           }else {
-            res.status(200).send({user: artistUpdated, mensaje:'Usuario Actualizado Correctamente ✅'});
+            res.status(200).send({user: artistUpdated, mensaje:'Artista Actualizado Correctamente ✅'});
           }
         }
       });

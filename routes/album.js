@@ -17,7 +17,7 @@ var md_upload = multipart({uploadDir:'./archivos/albums'})
 // Crear Rutas
 api.get('/album/:id', md_auth.ensureAuth, AlbumController.getAlbum)
 api.post('/album', md_auth.ensureAuth, AlbumController.SaveAlbum)
-api.get('/albums/:page', md_auth.ensureAuth, AlbumController.getAlbums)
+api.get('/albums/:artist?', md_auth.ensureAuth, AlbumController.getAlbums)
 api.put('/album/:id', md_auth.ensureAuth, AlbumController.updateAlbum)
 api.delete('/album/:id', md_auth.ensureAuth, AlbumController.deleteAlbum)
 api.post('/upload-image-album/:id', [md_auth.ensureAuth, md_upload], AlbumController.uploadImage)

@@ -16,7 +16,7 @@ var path = require('path');
 function getAlbum(req,res) {
   var albumId = req.params.id;
 
-  Album.findById(albumId,(err,album) => {
+  Album.findById(albumId).populate({path:'artista'}).exec((err,album) => {
     if (err) {
       res.status(500).send({mensaje: 'Error al buscar al album ❗️❗️'});
     } else {
@@ -30,24 +30,20 @@ function getAlbum(req,res) {
 }
 
 function getAlbums(req,res) {
-  if (!req.params.page) {
-    var page = 1;
+  var artistId = req.params.artist;
+  if (!artistId) {
+    var find = Album.find().sort('titulo')
   } else {
-    var page = req.params.page;
+    var find = Album.find({artista:artistId}).sort('fecha_lanzamiento');
   }
-  var itemsPerPage = 3;
-
-  Album.find().sort('nombre').paginate(page, itemsPerPage, function(err,albums,total) {
+  find.populate({path:'artista'}).exec((err,albums)=>{
     if (err) {
-      res.status(500).send({mensaje: 'Error en la petición ❗️❗️'});
+      res.status(500).send({mensaje: 'Error al buscar albums ❗️❗️'});
     } else {
       if (!albums) {
-        res.status(404).send({mensaje: 'No Hay albums ❓❓'});
+        res.status(404).send({mensaje: 'No se encontraron albums ❓❓'});
       } else {
-        return res.status(200).send({
-          elementos: total,
-          Albums: albums
-        });
+        res.status(200).send({albums,mensaje: 'Success ✅'});
       }
     }
   });
@@ -109,7 +105,6 @@ function deleteAlbum(req, res) {
               res.status(404).send({mensaje:'No se ah podido Eliminar el album ❎'});
             } else {
               res.status(200).send({album: albumRemoved, mensaje:'Album Eliminado Correctamente ✅'});
-
             }
           }
         });
