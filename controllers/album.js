@@ -18,10 +18,10 @@ function getAlbum(req,res) {
 
   Album.findById(albumId).populate({path:'artista'}).exec((err,album) => {
     if (err) {
-      res.status(500).send({mensaje: 'Error al buscar al album ❗️❗️'});
+      res.status(500).send({mensaje: 'Error al buscar al album ❌'});
     } else {
       if (!album) {
-        res.status(404).send({mensaje: 'Album no encontrado ❓❓'});
+        res.status(404).send({mensaje: 'Album no encontrado ⚠️'});
       } else {
         res.status(200).send({album, mensaje: 'Success ✅'});
       }
@@ -38,10 +38,10 @@ function getAlbums(req,res) {
   }
   find.populate({path:'artista'}).exec((err,albums)=>{
     if (err) {
-      res.status(500).send({mensaje: 'Error al buscar albums ❗️❗️'});
+      res.status(500).send({mensaje: 'Error al buscar albums ❌'});
     } else {
       if (!albums) {
-        res.status(404).send({mensaje: 'No se encontraron albums ❓❓'});
+        res.status(404).send({mensaje: 'No se encontraron albums ⚠️'});
       } else {
         res.status(200).send({albums,mensaje: 'Success ✅'});
       }
@@ -61,10 +61,10 @@ function SaveAlbum(req,res) {
 
   album.save((err, albumStored) => {
     if (err) {
-      res.status(500).send({mensaje: 'Error al guardar el Album ⚠️'});
+      res.status(500).send({mensaje: 'Error al guardar el Album ❌'});
     } else {
       if (!albumStored) {
-        res.status(404).send({mensaje: 'El Album no fué guardado... ❌'});
+        res.status(404).send({mensaje: 'El Album no fué guardado... ⚠️'});
       } else {
         res.status(200).send({ album: albumStored, mensaje: 'Album guardado exitosamente ✅'});
       }
@@ -81,7 +81,7 @@ function updateAlbum(req, res) {
        res.status(500).send({mensaje:'Error al Actualizar el Album ❌♻️'});
      } else {
        if (!albumUpdated) {
-         res.status(404).send({mensaje:'No se ah podido Actualizar el Album ❎'});
+         res.status(404).send({mensaje:'No se ah podido Actualizar el Album ⚠️'});
        }else {
          res.status(200).send({Artista: albumUpdated, mensaje:'Album Actualizado Correctamente ✅'});
        }
@@ -95,16 +95,16 @@ function deleteAlbum(req, res) {
       res.status(500).send({mensaje:'Error al Eliminar el Album ❌'});
     } else {
       if (!albumRemoved) {
-        res.status(404).send({mensaje:'No se ah podido Eliminar el Artista ❎'});
+        res.status(404).send({mensaje:'El Album no existe ⚠️'});
       } else {
         Cancion.find({album:albumRemoved._id}).remove((err,cancionRemoved) => {
           if (err) {
-            res.status(500).send({mensaje:'Error al Eliminar el Album ❌'});
+            res.status(500).send({mensaje:'Error al Eliminar el Cancion ❌'});
           } else {
             if (!albumRemoved) {
-              res.status(404).send({mensaje:'No se ah podido Eliminar el album ❎'});
+              res.status(404).send({mensaje:'No se encuentra(n) la(s) canción(es) ⚠️'});
             } else {
-              res.status(200).send({album: albumRemoved, mensaje:'Album Eliminado Correctamente ✅'});
+              res.status(200).send({cancion: cancionRemoved, mensaje:'Album y Canciones Eliminados Correctamente ✅'});
             }
           }
         });

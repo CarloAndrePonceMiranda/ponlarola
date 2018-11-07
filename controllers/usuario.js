@@ -143,7 +143,7 @@ function uploadImage(req,res) {
     }
     console.log(ext_split);
   }else {
-    res.status(200).send({ mensaje:'La imagen no se ah subido ❌' });
+    res.status(200).send({imagen:file_name, mensaje:'La imagen no se ah subido ❌' });
   }
 }
 
