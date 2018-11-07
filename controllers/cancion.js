@@ -1,8 +1,5 @@
 'use strict'
 
-// Módulo de paginación
-var mongoosePaginate = require('mongoose-pagination');
-
 // Importar modelos
 var Artista = require('../models/artista');
 var Album = require('../models/album');
@@ -16,14 +13,20 @@ var path = require('path');
 function getCancion(req,res) {
   var cancionId = req.params.id;
 
-  Cancion.findById(cancionId).populate({path: 'album'}).exec((err,cancion)=>{
+  Cancion.findById(cancionId).populate({
+    path: 'album',
+    populate:{
+      path: 'artista',
+      model: 'Artist'
+    }
+  }).exec((err,cancion)=>{
     if (err) {
-      res.status(500).send({mensaje:'Error al buscar cancion 🎵❌'});
+      res.status(500).send({mensaje: 'Error al buscar canción ❌'});
     } else {
       if (!cancion) {
-        res.status(404).send({mensaje:'Error al buscar cancion 🎵⚠️'});
-      }else {
-        res.status(200).send({cancion,mensaje:'Cancion Encontrada ✅'});
+        res.status(404).send({mensaje: 'Canción no encontrada ⚠️'});
+      } else {
+        res.status(200).send({cancion, mensaje: 'Cancion obtenida satisfactoriamente ✅'});
       }
     }
   });
@@ -32,7 +35,7 @@ function getCancion(req,res) {
 function getCanciones(req,res) {
   var albumId = req.params.album;
   if (!albumId) {
-    var find = Cancion.find().sort('id')
+    var find = Cancion.find().sort('id');
   } else {
     var find = Cancion.find({album:albumId}).sort('numero');
   }
@@ -42,7 +45,7 @@ function getCanciones(req,res) {
         path:'artista',
         model:'Artist'
     }
-  }).exec(function(err,canciones){
+  }).exec((err,canciones)=>{
     if (err) {
       res.status(500).send({mensaje: 'Error al buscar canciones ❌'});
     } else {
