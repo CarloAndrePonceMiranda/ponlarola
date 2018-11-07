@@ -143,18 +143,6 @@ function uploadCancion(req,res) {
   }
 }
 
-function getImageFile(req, res) {
-  var imageFile = req.params.imageFile;
-  var path_file = './archivos/albums/'+imageFile;
-
-  fs.exists(path_file, function(exists) {
-    if (exists) {
-      res.sendFile(path.resolve(path_file));
-    } else {
-      res.status(200).send({ mensaje:'La imagen no existe ❓' });
-    }
-  });
-}
 function getCancionFile(req, res) {
   var cancionFile = req.params.cancionFile;
   var path_file = './archivos/canciones/'+cancionFile;
@@ -163,7 +151,7 @@ function getCancionFile(req, res) {
     if (exists) {
       res.sendFile(path.resolve(path_file));
     } else {
-      res.status(200).send({ mensaje:'La canción no existe ❓' });
+      res.status(200).send({ mensaje:'La canción no existe ⚠️' });
     }
   });
 }
