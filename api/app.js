@@ -20,6 +20,7 @@ app.use((req,res,next)=>{
   res.header('Access-Control-Allow-Origin','*');
   /* ACCESO A TODAS LAS CABEZERAS */
   res.header('Access-Control-Allow-Headers','Authorization, X-API-KEY, ORIGIN, X-Requested-With, Content-Type, Accept', 'Access-Control-Allow-Request-Method');
+  res.header('Access-Control-Allow-Headers','Content-Type');
   /* ACCESO A TODOS LOS METODOS HTTP */
   res.header('Access-Control-Allow-Methods','GET, POST, PUT, DELETE, OPTIONS');
   res.header('Allow','GET, POST, PUT, DELETE');
