@@ -1,26 +1,81 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<nav id="navigation">
+
+</nav>
+<nav id="user_logged" class="navbar navbar-expand-lg navbar-dark bg-ponla">
+  <a class="navbar-brand" href="#">{{ title }}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse fixed" id="navbarsExample05">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngIf="identity">
+        <a class="nav-link"><i class="fas fa-search"></i> Buscar</a>
+      </li>
+      <li class="nav-item" *ngIf="identity">
+        <a class="nav-link"><i class="fas fa-users"></i> Artistas</a>
+      </li>
+      <li class="nav-item" *ngIf="identity">
+        <a class="nav-link"><i class="fas fa-compact-disc"></i> Albums</a>
+      </li>
+      <li class="nav-item" *ngIf="identity">
+        <a class="nav-link"><i class="fab fa-itunes-note"></i> Canciones</a>
+      </li>
+      <router-outlet></router-outlet>
+      <li class="nav-item dropdown" *ngIf="!identity">
+        <a class="nav-link dropdown-toggle" id="dropdown00" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-search"></i> Buscar</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown00">
+          <a class="dropdown-item" href="#">Registrate o Inicia Sesión</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" *ngIf="!identity">
+        <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-users"></i> Artistas</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Registrate o Inicia Sesión</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" *ngIf="!identity">
+        <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-compact-disc"></i> Albums</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown02">
+          <a class="dropdown-item" href="#">Registrate o Inicia Sesión</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" *ngIf="!identity">
+        <a class="nav-link dropdown-toggle" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fab fa-itunes-note"></i> Canciones</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown03">
+          <a class="dropdown-item" href="#">Registrate o Inicia Sesión</a>
+        </div>
+      </li>
+      <li *ngIf="identity" class="nav-item">
+        <a class="nav-link" [routerLink]="['/mi-perfil']"><i class="fas fa-cog"></i> Credenciales</a>
+      </li>
+    </ul>
+    <img id="img-logged" *ngIf="identity" src="{{url + 'get-image-user/' + identity.imagen}}" class="thumbnail-navbar" alt="Avatar">
+    <h5 *ngIf="identity" id="identity_name" class="nav-link text-light">{{identity.nombre}} {{identity.apellido}}</h5>
+    <button *ngIf="identity" type="button" name="button" class="btn btn-danger" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+
+  </div>
+</nav>
 
   <div class="container">
     <div class="row">
-      <div *ngIf="identity" class="navigation col-lg-1">
+      <div *ngIf="identity" class="col-lg-12">
         <h1>
-          {{ title }}
+
         </h1>
-        <div class="card" style="width: 20rem;">
-          <img class="card-img-top" src="" alt="Mi imagen">
-          <div class="card-body text-center">
-            <h5 class="card-title">{{identity.nombre}} {{identity.apellido}}</h5>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Correo Electrónico: {{identity.email}}</li>
-              <li class="list-group-item">Tipo de Usuario: {{identity.role}}</li>
-            </ul>
-          </div>
-        </div>
-        <button type="button" name="button" class="btn btn-danger" (click)="logout()">Cerrar Sesión</button>
-      </div>
-      <div class="clearfix"></div>
-      <div *ngIf="identity" class="central col-lg-11 ">
-        <p>Estás Logeado en la aplicación</p>
+        <!-- <nav>
+          <a href="#"></a>
+          <a href="#"><i class="fas fa-users"></i> Artistas</a>
+          <a href="#"><i class="fas fa-compact-disc"></i> Albums</a>
+          <a href="#"><i class="fab fa-itunes-note"></i> Canciones</a>
+          <a [routerLink]="['/mi-perfil']"><i class="fas fa-cog"></i> Credenciales</a>
+          Bienvenido <strong id="identity_name">{{identity.nombre}} {{identity.apellido}}</strong>
+
+        </nav> -->
+
+
+
       </div>
     </div>
     <div class="row">
@@ -43,7 +98,7 @@
                 <label for="password">Contraseña:</label>
                 <input type="password" #password="ngModel" name="password" [(ngModel)]="user.password" class="form-control" placeholder="Contraseña..." required/>
               </div>
-              <button type="submit" name="button" class="btn btn-primary">Entrar</button>
+              <button type="submit" name="button" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Entrar</button>
             </form>
           </div>
           <div class="col-lg-6 text-center">
@@ -74,7 +129,7 @@
                 <input #password="ngModel" name="password" [(ngModel)]="user_register.password" type="password" class="form-control" placeholder="Contraseña..." required>
                 <span class="text-muted" *ngIf="!password.valid && password.touched">La Contraseña es Obligatoria</span>
               </div>
-              <button type="submit" name="submit" class="btn btn-success">Registrar</button>
+              <button type="submit" name="submit" class="btn btn-success"><i class="fas fa-plus"></i> Registrar</button>
             </form>
           </div>
         </div>

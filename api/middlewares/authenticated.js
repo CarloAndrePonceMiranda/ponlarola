@@ -16,7 +16,7 @@ exports.ensureAuth = function(req, res, next) {
     }
   } catch (ex) {
     // console.log(ex);
-      return res.status(404).send({mensaje:'El token no es valido'});
+      return res.status(404).send({mensaje:'El token no es válido'});
   }
 
   req.user = ita;

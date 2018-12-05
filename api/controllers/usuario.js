@@ -68,6 +68,10 @@ function updateUser(req, res) {
    var userId = req.params.id;
    var update = req.body;
 
+   if (userId == req.user._id) {
+     return res.status(500).send({mensaje:'No tienes permisos puto intruso ❌'});
+   }
+
    User.findByIdAndUpdate(userId, update, (err, userUpdated) => {
      if (err) {
        res.status(500).send({mensaje:'Error al Actualizar el usuario ❌♻️'});
@@ -143,7 +147,7 @@ function uploadImage(req,res) {
     }
     console.log(ext_split);
   }else {
-    res.status(200).send({imagen:file_name, mensaje:'La imagen no se ah subido ❌' });
+    res.status(200).send({imagen:file_name, user:userUpdated});
   }
 }
 

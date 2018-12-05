@@ -14,19 +14,14 @@ var cancion_routes = require('./routes/cancion');
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-// Configurar Cabeceras HTTP
-app.use((req,res,next)=>{
-  /* ACCESO A TODOS LOS DOMINIOS */
-  res.header('Access-Control-Allow-Origin','*');
-  /* ACCESO A TODAS LAS CABEZERAS */
-  res.header('Access-Control-Allow-Headers','Authorization, X-API-KEY, ORIGIN, X-Requested-With, Content-Type, Accept', 'Access-Control-Allow-Request-Method');
-  res.header('Access-Control-Allow-Headers','Content-Type');
-  /* ACCESO A TODOS LOS METODOS HTTP */
-  res.header('Access-Control-Allow-Methods','GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Allow','GET, POST, PUT, DELETE');
+// configurar cabeceras http
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
 
-  next();
-
+    next();
 });
 
 // Rutas Base
